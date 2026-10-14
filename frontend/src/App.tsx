@@ -7,9 +7,10 @@ import routeImageAlternate from "./images/wallpaper-durga.jpg";
 import routeImageAltTwo from "./images/pandal-lights-alt.jpg";
 import routeImageClassic from "./images/durga pujo.jpg";
 
-const API = import.meta.env.VITE_API_URL ?? (
+const configuredApiUrl = import.meta.env.VITE_API_URL?.trim();
+const API = (configuredApiUrl || (
   import.meta.env.DEV ? "http://127.0.0.1:8000/api" : `${window.location.origin}/api`
-);
+)).replace(/\/+$/, "");
 type Region = "north" | "south";
 type Route = { id: string; name: string; region: Region; description?: string; estimated_duration_minutes?: number; stop_count: number };
 type Stop = { id: string; pandal_id: string; sequence: number; status: string; pandal: { name: string; address: string; description?: string } };
@@ -21,10 +22,24 @@ const googleDirectionsUrl = (from: Stop | undefined, to: Stop) => {
 };
 
 async function createGuestToken(): Promise<string> {
-  const guest = await fetch(`${API}/auth/guest`, { method: "POST" }).then((r) => r.json());
+  const response = await fetch(`${API}/auth/guest`, { method: "POST" });
+  if (!response.ok) {
+    throw new Error(await readApiError(response));
+  }
+  const guest = await response.json();
   if (typeof guest.token !== "string" || !guest.token) throw new Error("Unable to create a guest session");
   localStorage.setItem("pujo_guest_token", guest.token);
   return guest.token;
+}
+
+async function readApiError(response: Response): Promise<string> {
+  try {
+    const body = await response.json();
+    if (typeof body.detail === "string") return body.detail;
+  } catch {
+    // The server may return a non-JSON error page during a deployment failure.
+  }
+  return `Request failed (${response.status})`;
 }
 
 async function api<T>(path: string, init?: RequestInit, retry = true): Promise<T> {
@@ -43,14 +58,7 @@ async function api<T>(path: string, init?: RequestInit, retry = true): Promise<T
     return api<T>(path, init, false);
   }
   if (!response.ok) {
-    let message = "Something went wrong. Please try again.";
-    try {
-      const body = await response.json();
-      if (typeof body.detail === "string") message = body.detail;
-    } catch {
-      // Keep a useful generic message when the server returns a non-JSON error page.
-    }
-    throw new Error(message);
+    throw new Error(await readApiError(response));
   }
   return response.json();
 }

@@ -26,6 +26,26 @@ Set `VITE_API_URL` when the API is not running at `http://localhost:8000/api`.
 
 ### Production hosting
 
+The repository includes a root `vercel.json` that deploys the Vite frontend and
+FastAPI backend as two Vercel services on one domain. Deploy from the repository
+root, not from `frontend` or `backend`:
+
+```powershell
+vercel --prod
+```
+
+Configure these Vercel environment variables for the **backend** service before
+deploying:
+
+- `SECRET_KEY`: a new random value of at least 32 characters
+- `ADMIN_EMAIL`: the production admin email
+- `ADMIN_PASSWORD`: the production admin password
+- `DATABASE_URL`: a hosted database URL (PostgreSQL is recommended)
+- `CORS_ORIGINS`: the exact frontend origin, such as `https://pujo.example.com`
+
+Do not use the development `.env` values in production. Vercel's filesystem is
+ephemeral and should not be used for a writable production SQLite database.
+
 Build the frontend with the public API URL:
 
 ```powershell
@@ -34,7 +54,10 @@ $env:VITE_API_URL="https://api.example.com/api"
 npm run build
 ```
 
-For a same-domain deployment, omit `VITE_API_URL`; the built frontend will call `/api`.
+For the same-domain Vercel deployment, omit `VITE_API_URL` (or leave it blank);
+the built frontend will call `/api`. If the API is hosted on a different
+domain, set `VITE_API_URL` on the **frontend** service to the full URL ending
+in `/api`, then redeploy the frontend.
 Set the backend `CORS_ORIGINS` environment variable to the exact public frontend origin
 (for example, `https://pujo.example.com`) when the frontend and API use different domains.
 Serve the SPA fallback (`index.html`) for unknown frontend routes and expose HTTPS URLs
