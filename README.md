@@ -40,7 +40,9 @@ deploying:
 - `SECRET_KEY`: a new random value of at least 32 characters
 - `ADMIN_EMAIL`: the production admin email
 - `ADMIN_PASSWORD`: the production admin password
-- `DATABASE_URL`: a hosted database URL (PostgreSQL is recommended)
+- `DATABASE_URL`: a hosted database URL (PostgreSQL is recommended). If this
+  is omitted on Vercel, the app uses `/tmp/pujopath.db` as a demo fallback;
+  that storage is temporary and is not suitable for persistent journeys.
 - `CORS_ORIGINS`: the exact frontend origin, such as `https://pujo.example.com`
 
 Do not use the development `.env` values in production. Vercel's filesystem is

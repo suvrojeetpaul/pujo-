@@ -15,14 +15,21 @@ from app.services.seed_service import seed_2026_routes
 settings = get_settings()
 
 
-@asynccontextmanager
-async def lifespan(_: FastAPI):
+def initialize_database() -> None:
     Base.metadata.create_all(bind=engine)
     db = SessionLocal()
     try:
         seed_2026_routes(db)
     finally:
         db.close()
+
+
+initialize_database()
+
+
+@asynccontextmanager
+async def lifespan(_: FastAPI):
+    initialize_database()
     yield
 
 
