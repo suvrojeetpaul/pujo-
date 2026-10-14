@@ -1,0 +1,40 @@
+{
+  "routes": [
+    {
+      "name": "North Kolkata Heritage Trail 2026",
+      "slug": "north-kolkata-heritage-2026",
+      "region": "north",
+      "description": "A walking-first trail from Shobhabazar through Kumartuli and Hatibagan. Distances are left blank where the guide does not provide a verified leg distance.",
+      "stops": [
+        {"pandal_name": "Bagbazar Sarbojanin", "sequence": 1, "address": "Bagbazar, Kolkata, West Bengal, India", "region": "north", "stop_notes": "Start with this classic North Kolkata stop."},
+        {"pandal_name": "Kumartuli Sarbojanin", "sequence": 2, "address": "Kumartuli, Kolkata, West Bengal, India", "region": "north", "stop_notes": "Continue into the Kumartuli area."},
+        {"pandal_name": "Kumartuli Park", "sequence": 3, "address": "Kumartuli, Kolkata, West Bengal, India", "region": "north", "stop_notes": "Visit next while you are already in the neighbourhood."},
+        {"pandal_name": "Shobhabazar Beniatola", "sequence": 4, "address": "Beniatola, Shobhabazar, Kolkata, West Bengal, India", "region": "north", "stop_notes": "Continue south/east through the nearby lanes."},
+        {"pandal_name": "Ahiritola Sarbojanin", "sequence": 5, "address": "Ahiritola, Kolkata, West Bengal, India", "region": "north", "stop_notes": "Allow extra time if the lanes are crowded."},
+        {"pandal_name": "Kashi Bose Lane", "sequence": 6, "address": "Kashi Bose Lane, Kolkata, West Bengal, India", "region": "north", "stop_notes": "Move towards the central North Kolkata cluster."},
+        {"pandal_name": "Hatibagan Sarbojanin", "sequence": 7, "address": "Hatibagan, Kolkata, West Bengal, India", "region": "north", "stop_notes": "A useful point for a food and rest break."},
+        {"pandal_name": "Sikdar Bagan", "sequence": 8, "address": "Sikdar Bagan, Kolkata, West Bengal, India", "region": "north", "distance_from_previous_meters": 650, "estimated_travel_minutes": 12, "stop_notes": "The guide estimates 500–800 m from Hatibagan; confirm the pedestrian route locally."},
+        {"pandal_name": "Nalin Sarkar Street Durgotsav", "sequence": 9, "address": "Nalin Sarkar Street, Kolkata, West Bengal, India", "region": "north", "distance_from_previous_meters": 445, "estimated_travel_minutes": 8, "stop_notes": "The guide estimates 420–470 m from Sikdar Bagan; confirm the pedestrian route locally."}
+      ]
+    },
+    {
+      "name": "South Kolkata Puja Trail 2026",
+      "slug": "south-kolkata-puja-2026",
+      "region": "south",
+      "description": "A two-cluster route from Kalighat and Chetla to Deshapriya Park and Ballygunge. Allow flexibility for the transfer, diversions and queues.",
+      "stops": [
+        {"pandal_name": "Badamtala Ashar Sangha", "sequence": 1, "address": "Badamtala, Kalighat, Kolkata, West Bengal, India", "region": "south", "stop_notes": "Start near Kalighat and visit this first."},
+        {"pandal_name": "66 Pally", "sequence": 2, "address": "66 Pally, Kalighat, Kolkata, West Bengal, India", "region": "south", "stop_notes": "Continue within the Kalighat cluster."},
+        {"pandal_name": "Chetla Agrani Club", "sequence": 3, "address": "Chetla, Kolkata, West Bengal, India", "region": "south", "stop_notes": "Finish the first cluster here. Confirm the transfer locally."},
+        {"pandal_name": "Deshapriya Park", "sequence": 4, "address": "Deshapriya Park, Kolkata, West Bengal, India", "region": "south", "stop_notes": "Start the second cluster here after the Chetla transfer."},
+        {"pandal_name": "Tridhara Sammilani", "sequence": 5, "address": "Rashbehari Avenue, Kolkata, West Bengal, India", "region": "south", "stop_notes": "Continue towards the Rashbehari area."},
+        {"pandal_name": "Ballygunge Cultural Association", "sequence": 6, "address": "Ballygunge, Kolkata, West Bengal, India", "region": "south", "stop_notes": "Keep this with the nearby Ballygunge stops."},
+        {"pandal_name": "Samaj Sebi Sangha", "sequence": 7, "address": "Ballygunge, Kolkata, West Bengal, India", "region": "south", "stop_notes": "Visit next, depending on crowd flow."},
+        {"pandal_name": "Hindustan Park Sarbojanin", "sequence": 8, "address": "Hindustan Park, Kolkata, West Bengal, India", "region": "south", "stop_notes": "Continue through the neighbourhood."},
+        {"pandal_name": "Hindustan Club", "sequence": 9, "address": "Hindustan Park, Kolkata, West Bengal, India", "region": "south", "stop_notes": "Verify the exact intended venue and entry point before the day."},
+        {"pandal_name": "Singhi Park", "sequence": 10, "address": "Singhi Park, Kolkata, West Bengal, India", "region": "south", "stop_notes": "Continue if pedestrian access is convenient."},
+        {"pandal_name": "Ekdalia Evergreen Club", "sequence": 11, "address": "Ekdalia, Ballygunge, Kolkata, West Bengal, India", "region": "south", "stop_notes": "Planned final pandal, then head to Ballygunge Station."}
+      ]
+    }
+  ]
+}
